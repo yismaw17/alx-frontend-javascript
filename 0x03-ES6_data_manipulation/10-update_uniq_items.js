@@ -1,14 +1,10 @@
-/* eslint-disable linebreak-style */
-const updateUniqueItems = (aMap) => {
-  if (Object.getPrototypeOf(aMap) !== Map.prototype) throw Error('Cannot process');
+/* eslint-disable */
+export default function updateUniqueItems(groceriesMap) {
+  if (!(groceriesMap instanceof Map)) throw new Error("Cannot process");
 
-  aMap.forEach((key, val) => {
-    if (val === 1) {
-      aMap.set(key, 100);
-    }
+  groceriesMap.forEach((value, key) => {
+    if (value === 1) groceriesMap.set(key, 100);
   });
 
-  return aMap;
-};
-
-export default updateUniqueItems;
+  return groceriesMap;
+}
